@@ -24,8 +24,8 @@
                                             <action selector="shareMeme:" destination="BYZ-38-t0r" id="c66-0U-qhl"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="293" style="plain" systemItem="fixedSpace" id="03w-Xa-Zrr"/>
-                                    <barButtonItem title="Done" width="559.5" id="oxK-D3-4Qt">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="LMX-BV-8jK"/>
+                                    <barButtonItem title="Done" id="oxK-D3-4Qt">
                                         <connections>
                                             <action selector="clearMeme:" destination="BYZ-38-t0r" id="gPe-wK-JU3"/>
                                         </connections>
@@ -52,18 +52,21 @@
                                 <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
-                                    <barButtonItem image="photoAlbum" width="262" id="VQq-BZ-mUt">
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Fbg-PI-eaa"/>
+                                    <barButtonItem image="photoAlbum" width="84" id="VQq-BZ-mUt">
                                         <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="pickImageFromAlbum:" destination="BYZ-38-t0r" id="yLZ-4j-8gk"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="pc7-a8-LTw"/>
                                     <barButtonItem systemItem="camera" id="Bwa-Uc-nj1">
                                         <color key="tintColor" red="0.59999999999999998" green="0.0" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="pickImageFromCamera:" destination="BYZ-38-t0r" id="vma-yY-YKs"/>
                                         </connections>
                                     </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="IsV-KU-In8"/>
                                 </items>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </toolbar>
@@ -87,7 +90,7 @@
                         <constraints>
                             <constraint firstItem="ENd-Uy-Zx3" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" symbolic="YES" id="1WQ-VV-4tf"/>
                             <constraint firstItem="onZ-Dd-cVs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3Cf-hV-PKA"/>
-                            <constraint firstItem="15y-i3-iUn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3xA-Vs-6nj"/>
+                            <constraint firstItem="15y-i3-iUn" firstAttribute="top" secondItem="ENd-Uy-Zx3" secondAttribute="top" constant="44" id="3xA-Vs-6nj"/>
                             <constraint firstAttribute="trailing" secondItem="uv4-FG-iwR" secondAttribute="trailing" constant="10" id="9S5-KG-GGG"/>
                             <constraint firstItem="onZ-Dd-cVs" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="CNh-tV-cmP"/>
                             <constraint firstItem="uv4-FG-iwR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="D9S-yk-rfF"/>
@@ -98,12 +101,12 @@
                             <constraint firstItem="uv4-FG-iwR" firstAttribute="top" secondItem="15y-i3-iUn" secondAttribute="bottom" constant="50" id="YAV-gL-FFV"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Gae-QO-pDO" secondAttribute="bottom" id="aVS-xC-YKf"/>
                             <constraint firstItem="onZ-Dd-cVs" firstAttribute="top" secondItem="15y-i3-iUn" secondAttribute="bottom" symbolic="YES" id="bSb-xW-6uI"/>
-                            <constraint firstItem="15y-i3-iUn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="cG5-4J-qUR"/>
+                            <constraint firstItem="15y-i3-iUn" firstAttribute="trailing" secondItem="ENd-Uy-Zx3" secondAttribute="trailing" id="cG5-4J-qUR"/>
                             <constraint firstAttribute="trailing" secondItem="ENd-Uy-Zx3" secondAttribute="trailing" symbolic="YES" id="cGO-CE-wkq"/>
                             <constraint firstItem="Gae-QO-pDO" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="elc-aL-z7V"/>
                             <constraint firstItem="Gae-QO-pDO" firstAttribute="top" secondItem="Onp-db-hw9" secondAttribute="bottom" constant="50" id="sho-qo-1sx"/>
                             <constraint firstItem="Onp-db-hw9" firstAttribute="centerX" secondItem="Gae-QO-pDO" secondAttribute="centerX" id="tfN-Gw-s3P"/>
-                            <constraint firstItem="15y-i3-iUn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="z0p-qK-Cmf"/>
+                            <constraint firstItem="15y-i3-iUn" firstAttribute="leading" secondItem="ENd-Uy-Zx3" secondAttribute="leading" id="z0p-qK-Cmf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
