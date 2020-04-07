@@ -2,18 +2,26 @@
 //  ViewController.swift
 //  Memes
 //
-//  Created by Strawberry Pie on 2/25/20.
+//  Created by Razee Hussein-Jamal on 2/25/20.
 //  Copyright © 2020 Razee Hussein-Jamal. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController, UINavigationControllerDelegate {
+protocol MemeMakeDisplayLogic: class {
+    func display(with displayed: ShowMeme.DisplayedMeme)
+}
+class MemeMakeViewController: UIViewController, UINavigationControllerDelegate {
+    static let Identifier = "MemeMakeViewController"
+   
+    var interactor: MemeMakeBusinessLogic?
+    var presenter: MemeMakePresentationLogic?
+    var memeAppDelegate: MemeAppDelegate?
+    var isReady = false
     
     @IBOutlet weak var toolbarTop: UIToolbar!
     @IBOutlet weak var toolbarBottom: UIToolbar!
     @IBOutlet weak var navigationBar: UINavigationBar!
-    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
@@ -41,9 +49,21 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setup()
         construct(textField: topTextField, text: "TOP")
         construct(textField: bottomTextField, text: "BOTTOM")
+    }
+    
+    func setup() {
+        let viewController = self
+        let interactor = MemeMakeInteractor()
+        let presenter = MemeMakePresenter()
+        
+        viewController.interactor = interactor
+        viewController.presenter = presenter
+        
+        interactor.presenter = presenter
+        presenter.viewController = viewController
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -65,16 +85,22 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     }
     
     @IBAction func shareMeme(_ sender: Any) {
-        let activityViewController = UIActivityViewController(activityItems: [generated()], applicationActivities: nil)
+        let memedImage = generated()
+        let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         
         present(activityViewController, animated: true, completion: nil)
         
-        activityViewController.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, finished: Bool, returnedItems: [Any]?, error: Error?) -> Void in
-            if finished == true {
-                self.save()
+        activityViewController.completionWithItemsHandler = {(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) -> Void in
+            if completed {
+                self.save(memedImage)
                 self.presentingViewController?.dismiss(animated: true, completion: nil)
             }
         }
+    }
+    
+    @available(iOS 13.0, *)
+    final class DisabledDismissActivityViewController: UIActivityViewController {
+        override func dismiss(animated: Bool, completion: (() -> Void)? = nil) {}
     }
     
     @objc func keyboardWillShow(_ notification: Notification) {
@@ -88,7 +114,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     }
 }
 
-extension ViewController: UITextFieldDelegate {
+extension MemeMakeViewController: UITextFieldDelegate {
     func construct(textField: UITextField, text: String) {
         textField.text = text
         textField.defaultTextAttributes = memeTextAttributes
@@ -108,7 +134,7 @@ extension ViewController: UITextFieldDelegate {
     }
 }
 
-extension ViewController: UIImagePickerControllerDelegate {
+extension MemeMakeViewController: UIImagePickerControllerDelegate {
     func configurePickerController(sourceType: UIImagePickerController.SourceType) {
         pickerController.delegate = self
         pickerController.sourceType = sourceType
@@ -124,7 +150,7 @@ extension ViewController: UIImagePickerControllerDelegate {
     }
 }
 
-extension ViewController {
+extension MemeMakeViewController {
     func configureCamera() {
         cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
     }
@@ -136,7 +162,7 @@ extension ViewController {
     }
 }
 
-extension ViewController {
+extension MemeMakeViewController {
     func subscribeToKeyboardNotifications() {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -148,21 +174,26 @@ extension ViewController {
     }
 }
 
-extension ViewController {
-    func save() {
-        let memedImage = generated()
-        _ = Meme(topText: topTextField.text ?? "" , bottomText: bottomTextField.text ?? "", originalImage: imageView.image!, memedImage: memedImage)
+extension MemeMakeViewController {
+    func save(_ memedImage: UIImage) {
+        let meme = Meme(topText: topTextField.text ?? "" , bottomText: bottomTextField.text ?? "", originalImage: imageView.image!, memedImage: memedImage)
+        
+        interactor?.insertMeme(meme: meme)
     }
     
     func generated() -> UIImage {
         enableToolBarsAndNavigationBar(value: true)
         
         UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
+        self.view.drawHierarchy(in: self.imageView.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
         UIGraphicsEndImageContext()
         
         enableToolBarsAndNavigationBar(value: false)
         return memedImage
     }
+}
+
+extension MemeMakeViewController: MemeMakeDisplayLogic {
+    func display(with displayed: ShowMeme.DisplayedMeme) {}
 }

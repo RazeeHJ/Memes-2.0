@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Oh-cD-frn">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Meme Table Controller-->
+        <scene sceneID="7Yz-ce-cyQ">
+            <objects>
+                <tableViewController storyboardIdentifier="MemeTable" id="9Oh-cD-frn" customClass="MemeTableController" customModule="Memes" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BL1-Ox-oZT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="9Oh-cD-frn" id="Ycc-MW-KXd"/>
+                            <outlet property="delegate" destination="9Oh-cD-frn" id="2oz-Pm-8ir"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <tabBar contentMode="scaleToFill" id="AIE-AU-c03">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <items>
+                        <tabBarItem systemItem="favorites" id="sEq-M1-4h6"/>
+                        <tabBarItem systemItem="more" id="ptV-hj-UFP"/>
+                    </items>
+                </tabBar>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vIV-a0-Q8L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="139"/>
+        </scene>
+        <!--MemeMakeViewController-->
+        <scene sceneID="fTh-QH-YVC">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="MemeMakeViewController" storyboardName="MemeMake" referencedIdentifier="MemeMakeViewController" id="AdK-IP-Pb9" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gHJ-zB-uzs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="708" y="10"/>
+        </scene>
+        <!--MemeDetail-->
+        <scene sceneID="idt-iU-sIA">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="MemeDetailViewController" storyboardName="MemeDetail" id="fQj-S4-Qhr" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UQg-Ro-Hb9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="710" y="78"/>
+        </scene>
+    </scenes>
+</document>

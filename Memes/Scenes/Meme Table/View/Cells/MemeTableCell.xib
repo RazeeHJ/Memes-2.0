@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemeTableCell" rowHeight="150" id="Lvi-3a-V9w" customClass="MemeTableCell" customModule="Memes" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="139"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Lvi-3a-V9w" id="BgL-2R-9Q0">
+                <rect key="frame" x="0.0" y="0.0" width="414" height="139"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C9q-d4-ih8">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="139"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="240" id="JBD-n7-dCU"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iqW-15-P9R">
+                        <rect key="frame" x="240" y="0.0" width="174" height="139"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="iqW-15-P9R" secondAttribute="trailing" id="7Av-qt-0Ig"/>
+                    <constraint firstItem="iqW-15-P9R" firstAttribute="leading" secondItem="C9q-d4-ih8" secondAttribute="trailing" id="Jpy-tQ-Nvu"/>
+                    <constraint firstAttribute="bottom" secondItem="C9q-d4-ih8" secondAttribute="bottom" id="Ws3-wr-9wm"/>
+                    <constraint firstItem="C9q-d4-ih8" firstAttribute="bottom" secondItem="iqW-15-P9R" secondAttribute="bottom" id="dPB-VE-YcG"/>
+                    <constraint firstItem="iqW-15-P9R" firstAttribute="leading" secondItem="C9q-d4-ih8" secondAttribute="trailing" id="e5K-v1-lWf"/>
+                    <constraint firstItem="C9q-d4-ih8" firstAttribute="top" secondItem="iqW-15-P9R" secondAttribute="top" id="tAC-GK-3dg"/>
+                    <constraint firstItem="C9q-d4-ih8" firstAttribute="leading" secondItem="BgL-2R-9Q0" secondAttribute="leading" id="ujv-wC-fNC"/>
+                    <constraint firstItem="C9q-d4-ih8" firstAttribute="top" secondItem="BgL-2R-9Q0" secondAttribute="top" id="wGb-8G-fXP"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="memedImage" destination="C9q-d4-ih8" id="kon-Yp-bZ7"/>
+                <outlet property="memedLabel" destination="iqW-15-P9R" id="u5D-jw-qZv"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="154.35267857142856"/>
+        </tableViewCell>
+    </objects>
+</document>

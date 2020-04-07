@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Memes
 //
-//  Created by Strawberry Pie on 2/25/20.
+//  Created by Razee Hussein-Jamal on 2/25/20.
 //  Copyright © 2020 Razee Hussein-Jamal. All rights reserved.
 //
 
@@ -10,6 +10,9 @@ import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    
+    var memes = [Meme]()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
  
         return true

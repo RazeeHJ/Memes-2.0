@@ -2,7 +2,7 @@
 //  MemeModel.swift
 //  Memes
 //
-//  Created by Strawberry Pie on 2/26/20.
+//  Created by Razee Hussein-Jamal on 2/26/20.
 //  Copyright © 2020 Razee Hussein-Jamal. All rights reserved.
 //
 
